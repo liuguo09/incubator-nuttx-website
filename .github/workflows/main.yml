@@ -26,13 +26,13 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Intall tools
-      if: github.event.pull_request.merged == 'true'
+      if: github.event.pull_request.merged == true
       run: |
         sudo apt-get -y install rubygems ruby-dev zlib1g-dev
         sudo gem install bundler github-pages jekyll
         
     - name: Run publish.sh
-      if: github.event.pull_request.merged == 'true'
+      if: github.event.pull_request.merged == true
       run: | 
         ./publish.sh
         git branch
