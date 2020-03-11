@@ -5,13 +5,15 @@ name: CI
 on:
   pull_request:
     branches: [ master ]
+    types: [closed] 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    if: github.action == 'closed' && github.pull_request.merged == 'true'
+    #if: github.action == 'closed' && github.pull_request.merged == 'true'
+    if: github.event.pull_request.merged == 'true'
     
     runs-on: ubuntu-latest
 
