@@ -32,3 +32,4 @@ jobs:
         sudo ./publish.sh
         git branch
         git log --oneline
+        git push origin asf-site:asf-site
