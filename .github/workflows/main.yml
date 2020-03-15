@@ -23,7 +23,9 @@ jobs:
       run: |
         export GEM_HOME=$HOME/.gem
         export PATH=$PATH:$GEM_HOME/bin
-        git config --global user.email liuguo09@gmail.com
-        git config --global user.name liuhaitao
+        username=`git log -1 --pretty=format:'%an'`
+        email=`git log -1 --pretty=format:'%ae'`  
+        git config --global user.name $username
+        git config --global user.email $email
         ./publish.sh
         git push origin asf-site:asf-site
